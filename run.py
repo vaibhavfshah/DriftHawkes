@@ -23,7 +23,7 @@ import torch
 #place them in data folder.
 
 dataset, name = dataset.split(',')
-def jai_gurudev(input_string):
+def parse(input_string):
     elements = input_string.split('\t')
     numbers = []
     for element in elements:
@@ -34,7 +34,7 @@ def jai_gurudev(input_string):
         numbers.append(number)    
     return numbers
 
-latent_dim, hidden_dim, rnn_dim, fnn_dim, lstm_dim, layers_rnn, layers_fnn, layers_lstm, learning_rate, epochs, noise_dim, step_size = jai_gurudev(string_param)
+latent_dim, hidden_dim, rnn_dim, fnn_dim, lstm_dim, layers_rnn, layers_fnn, layers_lstm, learning_rate, epochs, noise_dim, step_size = parse(string_param)
 if(dataset=='yelp'):
     all_domains, domain_X_attr, domain_y_attr, all_X_attr, all_only_attr, all_y_attr = dataloader.getyelp(device, step_size, name)
 else: #synthetic
